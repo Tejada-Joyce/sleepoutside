@@ -35,7 +35,7 @@ export default class ProductDetails {
         />
 
         <p class="product-card__price">${this.product.ListPrice}</p>
-        <p class="product__color">${this.product.Colors.ColorName}</p>
+        <p class="product__color">${this.product.Colors[0].ColorName}</p>
         <p class="product__description">
         ${this.product.DescriptionHtmlSimple}
         </p>
