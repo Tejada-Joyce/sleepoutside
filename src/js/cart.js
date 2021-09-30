@@ -4,9 +4,17 @@ function getLocalStorage(key) {
 
 function getCartContents() {
   let markup = "";
+  let htmlItems;
   const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => renderCartItem(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  console.log(cartItems);
+  if (cartItems != null) {
+    htmlItems = cartItems.map((item) => renderCartItem(item));
+    document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  } else {
+    document.querySelector(".product-list").innerHTML =
+      "There is nothing in your cart yet.";
+  }
+
   // document.querySelector(".product-list").innerHTML = renderCartItem(cartItems);
 }
 
