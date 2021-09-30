@@ -4,11 +4,10 @@ function getLocalStorage(key) {
 
 function getCartContents() {
   let markup = "";
-  let htmlItems;
   const cartItems = getLocalStorage("so-cart");
-  console.log(cartItems);
+  // console.log(cartItems);
   if (cartItems != null) {
-    htmlItems = cartItems.map((item) => renderCartItem(item));
+    const htmlItems = cartItems.map((item) => renderCartItem(item));
     document.querySelector(".product-list").innerHTML = htmlItems.join("");
   } else {
     document.querySelector(".product-list").innerHTML =
