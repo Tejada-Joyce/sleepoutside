@@ -7,14 +7,15 @@ export function qs(selector, parent = document) {
 
 // retrieve data from localstorage
 export function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
+  let currentCart = JSON.parse(localStorage.getItem(key));
+  if (!currentCart) {
+    currentCart = [];
+  }
+  return currentCart;
 }
 // save data to local storage
 export function setLocalStorage(key, data) {
   let currentCart = getLocalStorage(key);
-  if (!currentCart) {
-    currentCart = [];
-  }
   currentCart.push(data);
   localStorage.setItem(key, JSON.stringify(currentCart));
 }
