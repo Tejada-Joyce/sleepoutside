@@ -219,3 +219,16 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+/* Superscript cart */
+
+#cart-superscript {
+  height: 20px;
+  width: 20px;
+  background-color: #bbb;
+  border-radius: 50%;
+  position: absolute;
+  right: -5px;
+  top: 10px;
+  color: white;
+}
