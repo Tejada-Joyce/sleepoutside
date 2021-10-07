@@ -34,11 +34,16 @@ export function getParams(param) {
   return product;
 }
 
-export function renderListWithTemplate(template, parentElement, list, callback){
-  template = qs(template);
+export function renderListWithTemplate(
+  template,
+  parentElement,
+  list,
+  callback
+) {
+  const newTemplate = qs(template);
 
-   list.forEach((product) => {
-    const clone = template.content.cloneNode(true);
+  list.forEach((product) => {
+    const clone = newTemplate.content.cloneNode(true);
     callback(clone, product);
     parentElement.appendChild(clone);
   });

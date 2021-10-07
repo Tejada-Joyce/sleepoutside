@@ -11,11 +11,25 @@ export default class ProductList {
   }
 
   async init() {
-    console.log(this.datasource);
+    // console.log(this.datasource);
     this.productList = await this.datasource.getProductsData();
-    console.log(this.productList);
+    if (this.category === "tents") {
+      this.productList = await this.productList.filter(
+        (product) =>
+          product.Id == "880RR" ||
+          product.Id == "985RF" ||
+          product.Id == "985PR" ||
+          product.Id == "344YJ"
+      );
+    }
+
     this.element = qs(this.element);
-    renderListWithTemplate(this.template, this.element, this.productList, this.prepareTemplate);
+    renderListWithTemplate(
+      this.template,
+      this.element,
+      this.productList,
+      this.prepareTemplate
+    );
   }
 
   prepareTemplate(clone, product) {
@@ -26,7 +40,7 @@ export default class ProductList {
     const p = qs(".product-card__price", clone);
 
     a.href += product.Id;
-    img.setAttribute('src', product.Image);
+    img.setAttribute("src", product.Image);
     h3.innerHTML = product.Brand.Name;
     h2.innerHTML = product.NameWithoutBrand;
     p.innerHTML += product.ListPrice;
