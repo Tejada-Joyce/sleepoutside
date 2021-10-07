@@ -29,8 +29,3 @@ function renderCartItem(item) {
 }
 
 getCartContents();
-
-
-
-addCartSuperscript();
-
