@@ -7,7 +7,6 @@ function getCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => renderCartItem(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  console.log(cartItems);
   // document.querySelector(".product-list").innerHTML = renderCartItem(cartItems);
 }
 
@@ -38,7 +37,6 @@ function totalCost() {
     for (var i = 0; i < cartItems.length; i++) {
       var item = cartItems[i];
       prices.push(item.FinalPrice);
-      console.log(prices);
     }
     let sum = 0;
     for (let i = 0; i < prices.length; i++) {
