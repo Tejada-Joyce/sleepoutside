@@ -34,7 +34,8 @@ export default class ProductDetails {
           alt="${this.product.NameWithoutBrand}"
         />
 
-        <p class="product-card__price">${this.product.ListPrice}</p>
+        <p class="discount"> ${Math.round(100 * (this.product.SuggestedRetailPrice - this.product.ListPrice) / this.product.SuggestedRetailPrice)}% OFF</p>
+        <p class="product-card__price">${this.product.ListPrice}  <strike>$${this.product.SuggestedRetailPrice}</strike></p>
         <p class="product__color">${this.product.Colors[0].ColorName}</p>
         <p class="product__description">
         ${this.product.DescriptionHtmlSimple}
