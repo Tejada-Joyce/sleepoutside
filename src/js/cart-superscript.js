@@ -1,8 +1,6 @@
-function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
-}
+import { getLocalStorage } from "../js/utils.js";
 
-function renderCartSuperscript() {
+export function renderCartSuperscript() {
   if (getLocalStorage("so-cart") == null) {
     const element = document.getElementById("cart-superscript");
     element.innerHTML = 0;
@@ -13,4 +11,4 @@ function renderCartSuperscript() {
   }
 }
 
-renderCartSuperscript();
+// renderCartSuperscript();
