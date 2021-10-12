@@ -15,9 +15,9 @@ export function getLocalStorage(key) {
 }
 // save data to local storage
 export function setLocalStorage(key, data) {
-  let currentCart = getLocalStorage(key);
-  currentCart.push(data);
-  localStorage.setItem(key, JSON.stringify(currentCart));
+  // let currentCart = getLocalStorage(key);
+  // currentCart.push(data);
+  localStorage.setItem(key, JSON.stringify(data));
 }
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
@@ -26,6 +26,19 @@ export function setClick(selector, callback) {
     callback();
   });
   qs(selector).addEventListener("click", callback);
+}
+
+//Function adds the click and touch events to more than one element
+export function setClickforAll(selector, callback) {
+  document.querySelectorAll(selector).forEach((el) => {
+    el.addEventListener("touchend", (event) => {
+      event.preventDefault();
+      callback(el);
+    });
+    el.addEventListener("click", () => {
+      callback(el);
+    });
+  });
 }
 
 export function getParams(param) {
