@@ -42,9 +42,28 @@ function renderCartItem(item) {
     <button class="removeFromCart" data-id="${item.Id}">Remove from Cart</button>
   </div>
 </li>`;
-  console.log(newItem);
   return newItem;
 }
+
+function totalCost() {
+  if (getLocalStorage("so-cart") == null) {
+    //pass
+  } else {
+    const cartItems = getLocalStorage("so-cart");
+    var prices = [];
+    for (var i = 0; i < cartItems.length; i++) {
+      var item = cartItems[i];
+      prices.push(item.FinalPrice);
+    }
+    let sum = 0;
+    for (let i = 0; i < prices.length; i++) {
+      sum += prices[i];
+    }
+    document.getElementById("cartTotal").innerHTML = `Cart total: $${sum}`;
+  }
+}
+
+totalCost();
 
 //Function removes the first element that has the same id that was clicked
 function removeFromCart(el) {
