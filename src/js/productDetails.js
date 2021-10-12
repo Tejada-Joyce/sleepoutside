@@ -35,14 +35,21 @@ export default class ProductDetails {
           alt="${this.product.NameWithoutBrand}"
         />
 
-        <p class="discount"> ${Math.round(100 * (this.product.SuggestedRetailPrice - this.product.ListPrice) / this.product.SuggestedRetailPrice)}% OFF</p>
-        <p class="product-card__price">${this.product.ListPrice}  <strike>$${this.product.SuggestedRetailPrice}</strike></p>
+        <p class="discount"> ${Math.round(
+          (100 * (this.product.SuggestedRetailPrice - this.product.ListPrice)) /
+            this.product.SuggestedRetailPrice
+        )}% OFF</p>
+        <p class="product-card__price">${this.product.ListPrice}  <strike>$${
+      this.product.SuggestedRetailPrice
+    }</strike></p>
         <p class="product__color">${this.product.Colors[0].ColorName}</p>
         <p class="product__description">
         ${this.product.DescriptionHtmlSimple}
         </p>
         <div class="product-detail__add">
-          <button id="addToCart" data-id="${this.product.Id}">Add to Cart</button>
+          <button id="addToCart" data-id="${
+            this.product.Id
+          }">Add to Cart</button>
         </div>
       </section>
     `;

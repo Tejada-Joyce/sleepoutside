@@ -3,6 +3,7 @@ import {
   qs,
   setClickforAll,
   setLocalStorage,
+  loadHeaderFooter,
 } from "../js/utils.js";
 
 function getCartContents() {
@@ -60,8 +61,8 @@ function totalCost() {
       prices.push(item.FinalPrice);
     }
     let sum = 0;
-    for (let i = 0; i < prices.length; i++) {
-      sum += prices[i];
+    for (let j = 0; j < prices.length; j++) {
+      sum += prices[j];
     }
     document.getElementById("cartTotal").innerHTML = `Cart total: $${sum}`;
   }
@@ -80,3 +81,4 @@ function removeFromCart(el) {
 }
 
 getCartContents();
+loadHeaderFooter();
