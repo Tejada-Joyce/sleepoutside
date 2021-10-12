@@ -169,6 +169,9 @@ button:hover {
 .product-detail img {
   width: 100%;
 }
+.product-detail .discount{
+  color: red;
+}
 
 /* Start cart list card styles */
 .cart-card {
