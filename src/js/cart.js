@@ -46,8 +46,12 @@ function renderCartItem(item) {
 }
 
 function totalCost() {
-  if (getLocalStorage("so-cart") == null) {
-    //pass
+  console.log(getLocalStorage("so-cart"));
+  if (
+    getLocalStorage("so-cart") == null ||
+    getLocalStorage("so-cart").length == 0
+  ) {
+    document.getElementById("cartTotal").style.display = "none";
   } else {
     const cartItems = getLocalStorage("so-cart");
     var prices = [];
