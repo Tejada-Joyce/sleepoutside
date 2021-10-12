@@ -1,12 +1,20 @@
-function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
-}
+import { getLocalStorage } from "../js/utils.js";
 
 function getCartContents() {
   let markup = "";
   const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => renderCartItem(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  if (cartItems.length !== 0) {
+    const htmlItems = cartItems.map((item) => renderCartItem(item));
+    document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  } else {
+    const p = document.createElement("p");
+    const ul = document.querySelector(".product-list");
+    const section = document.querySelector(".products");
+    p.innerHTML = "There is nothing in your cart yet.";
+    ul.style.display = "none";
+    section.appendChild(p);
+  }
+
   // document.querySelector(".product-list").innerHTML = renderCartItem(cartItems);
 }
 
