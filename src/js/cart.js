@@ -4,7 +4,10 @@ import {
   setClickforAll,
   setLocalStorage,
   loadHeaderFooter,
+  playAnimation,
 } from "../js/utils.js";
+
+import { renderCartSuperscript } from "./cart-superscript.js";
 
 function getCartContents() {
   let markup = "";
@@ -47,7 +50,7 @@ function renderCartItem(item) {
 }
 
 function totalCost() {
-  console.log(getLocalStorage("so-cart"));
+  // console.log(getLocalStorage("so-cart"));
   if (
     getLocalStorage("so-cart") == null ||
     getLocalStorage("so-cart").length == 0
@@ -68,8 +71,6 @@ function totalCost() {
   }
 }
 
-totalCost();
-
 //Function removes the first element that has the same id that was clicked
 function removeFromCart(el) {
   const productId = el.getAttribute("data-id");
@@ -77,8 +78,12 @@ function removeFromCart(el) {
   const index = cartItems.findIndex((product) => product.Id === productId);
   cartItems.splice(index, 1);
   setLocalStorage("so-cart", cartItems);
+  renderCartSuperscript();
+  playAnimation();
   getCartContents();
+  totalCost();
 }
 
-getCartContents();
 loadHeaderFooter();
+getCartContents();
+totalCost();

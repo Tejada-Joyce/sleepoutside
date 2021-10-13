@@ -99,3 +99,14 @@ export async function loadHeaderFooter() {
   await renderWithTemplate(footerHTML, footer);
   renderCartSuperscript();
 }
+
+export function playAnimation() {
+  const cart = qs(".cart");
+  if (cart.classList.contains("cart-animation")) {
+    cart.classList.remove("cart-animation");
+    cart.classList.add("cart-animation2");
+  } else {
+    cart.classList.add("cart-animation");
+    cart.classList.remove("cart-animation2");
+  }
+}
