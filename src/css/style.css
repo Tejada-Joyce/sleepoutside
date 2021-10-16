@@ -252,3 +252,35 @@ footer {
   top: 10px;
   color: white;
 }
+
+/* Newsletter Signup */
+.newsletter-signup {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  padding: 1em 0 2em 0;
+  border: 1px solid var(--light-grey);
+  max-width: 60%;
+  text-align: center;
+}
+
+.newsletter-signup h2 {
+  font-size: 30px;
+}
+
+.newsletter-signup p {
+  margin-top: 20px;
+}
+
+.newsletter-signup input[type="submit"] {
+  margin-top: 30px;
+  padding: 10px 30px 10px 30px;
+  font-size: 18px;
+}
+
+.newsletter-signup input[type="text"] {
+  width: 70%;
+  padding: 12px 20px;
+  font-size: 20px;
+  margin-top: 20px;
+}
