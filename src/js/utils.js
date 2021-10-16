@@ -101,7 +101,7 @@ export async function loadHeaderFooter() {
 }
 
 export function playAnimation() {
-  const cart = qs(".cart");
+  const cart = qs("#cart-superscript");
   if (cart.classList.contains("cart-animation")) {
     cart.classList.remove("cart-animation");
     cart.classList.add("cart-animation2");
