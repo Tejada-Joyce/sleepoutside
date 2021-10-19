@@ -1,4 +1,11 @@
-import { qs, getLocalStorage, setLocalStorage } from "../js/utils.js";
+import {
+  qs,
+  getLocalStorage,
+  setLocalStorage,
+  playAnimation,
+} from "../js/utils.js";
+
+import { renderCartSuperscript } from "./cart-superscript.js";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -22,6 +29,8 @@ export default class ProductDetails {
     let currentCart = getLocalStorage("so-cart");
     currentCart.push(this.product);
     setLocalStorage("so-cart", currentCart);
+    playAnimation();
+    renderCartSuperscript();
   }
 
   renderProductDetails() {
