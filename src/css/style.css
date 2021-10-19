@@ -203,6 +203,32 @@ button:hover {
   max-width: 600px;
   margin: auto;
 }
+.products-list {
+  display: flex;
+  text-align: center;
+  column-gap: 10px;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+.product-list-item {
+  width: 150px;
+}
+
+.product-list-item p {
+  font-weight: bold;
+}
+
+.products h2 {
+  text-transform: capitalize;
+}
+
+.products-list a {
+  color: black;
+  text-decoration: none;
+}
+
 .products {
   padding: 0.5em;
 }
