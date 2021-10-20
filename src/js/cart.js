@@ -13,7 +13,13 @@ function getCartContents() {
   let markup = "";
   const cartItems = getLocalStorage("so-cart");
   if (cartItems.length !== 0) {
-    const htmlItems = cartItems.map((item) => renderCartItem(item));
+    const newCartItems = [
+      ...new Map(cartItems.map((item) => [item["Id"], item])).values(),
+    ];
+    const htmlItems = newCartItems.map((item) => {
+      const quantity = getItemQuantity(item, cartItems);
+      return renderCartItem(item, quantity);
+    });
     qs(".product-list").innerHTML = htmlItems.join("");
     setClickforAll(".removeFromCart", removeFromCart);
   } else {
@@ -28,11 +34,11 @@ function getCartContents() {
   // document.querySelector(".product-list").innerHTML = renderCartItem(cartItems);
 }
 
-function renderCartItem(item) {
+function renderCartItem(item, quantity) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
-      src="${item.Image}"
+      src="${item.Images.PrimaryMedium}"
       alt="${item.Name}"
     />
   </a>
@@ -40,10 +46,12 @@ function renderCartItem(item) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
+  <p class="cart-card__quantity">qty: ${quantity}</p>
+  <p class="cart-card__price">$${(item.FinalPrice * quantity).toFixed(2)}</p>
   <div class="cart-card__remove">
-    <button class="removeFromCart" data-id="${item.Id}">Remove from Cart</button>
+    <button class="removeFromCart" data-id="${
+      item.Id
+    }">Remove from Cart</button>
   </div>
 </li>`;
   return newItem;
@@ -67,7 +75,9 @@ function totalCost() {
     for (let j = 0; j < prices.length; j++) {
       sum += prices[j];
     }
-    document.getElementById("cartTotal").innerHTML = `Cart total: $${sum}`;
+    document.getElementById(
+      "cartTotal"
+    ).innerHTML = `Cart total: $${sum.toFixed(2)}`;
   }
 }
 
@@ -82,6 +92,16 @@ function removeFromCart(el) {
   playAnimation();
   getCartContents();
   totalCost();
+}
+
+function getItemQuantity(cart, mainArray) {
+  let count = 0;
+  mainArray.forEach((item) => {
+    if (item.Id === cart.Id) {
+      count++;
+    }
+  });
+  return count;
 }
 
 loadHeaderFooter();
