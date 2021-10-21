@@ -49,6 +49,6 @@ export default class ProductList {
 
   editTitle() {
     const h2 = qs("section.products h2");
-    h2.innerHTML = `Top ${this.category}`;
+    h2.innerHTML += ` ${this.category}`;
   }
 }
