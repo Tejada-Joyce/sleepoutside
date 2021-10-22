@@ -13,9 +13,12 @@ function getCartContents() {
   let markup = "";
   const cartItems = getLocalStorage("so-cart");
   if (cartItems.length !== 0) {
-    const newCartItems = [
-      ...new Map(cartItems.map((item) => [item["Id"], item])).values(),
-    ];
+    // const newCartItems = [
+    //   ...new Map(cartItems.map((item) => [item["Id"], item])).values(),
+    // ];
+    const mapItems = cartItems.map((item) => [item["Id"], item]);
+    const myMap = new Map(mapItems);
+    const newCartItems = [...myMap.values()];
     const htmlItems = newCartItems.map((item) => {
       const quantity = getItemQuantity(item, cartItems);
       return renderCartItem(item, quantity);
