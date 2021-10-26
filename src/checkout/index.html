@@ -16,7 +16,7 @@
       </section>
       <section id="checkout-form">
         <form action="">
-          <fieldset>
+          <fieldset id="shipping">
             <legend>Shipping</legend>
             <label for="first-name">First Name</label>
             <input type="text" name="first-name" id="first-name" required>
@@ -31,7 +31,7 @@
             <label for="zip">Zip</label>
             <input type="text" name="zip" id="zip" required>
           </fieldset>
-          <fieldset>
+          <fieldset id="payment">
             <legend>Payment</legend>
             <label for="card-number">Card Number</label>
             <input type="text" name="card-number" id="card-number" required>
@@ -40,7 +40,7 @@
             <label for="security-code">Security Code</label>
             <input type="text" name="security-code" id="security-code" required>
           </fieldset>
-          <fieldset>
+          <fieldset id="summary">
             <legend>Order Summary</legend>
             <p>Item Subtotal(<span id="quantity"></span>)</p>
             <p id="item-subtotal"></p>

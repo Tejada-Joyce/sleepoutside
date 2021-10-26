@@ -42,7 +42,7 @@ function renderTotalDetails() {
 
     const total = qs('#order-total');
     const totalAmount = parseFloat(renderSubtotal()) + parseFloat(taxAmount) + parseFloat(shippingAmount);
-    total.innerHTML = `$${totalAmount}`;
+    total.innerHTML = `$${totalAmount.toFixed(2)}`;
 }
 
 renderSubtotal();
