@@ -13,6 +13,7 @@ export default class ProductList {
   async init() {
     // console.log(this.datasource);
     this.productList = await this.datasource.getProductsData(this.category);
+
     // if (this.category === "tents") {
     //   this.productList = await this.productList.filter(
     //     (product) =>
@@ -28,9 +29,11 @@ export default class ProductList {
       this.template,
       this.element,
       this.productList,
-      this.prepareTemplate
+      this.prepareTemplate,
+      this.editBread
     );
     this.editTitle();
+    this.editBread();
   }
 
   prepareTemplate(clone, product) {
@@ -50,5 +53,10 @@ export default class ProductList {
   editTitle() {
     const h2 = qs("section.products h2");
     h2.innerHTML += ` ${this.category}`;
+  }
+
+  editBread() {
+    const bread = qs("section.breadcrumbs h3");
+    bread.innerHTML += `${this.category} -> (${this.productList.length} Items)`;
   }
 }
