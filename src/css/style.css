@@ -321,6 +321,14 @@ button:hover {
   margin-bottom: 20px;
 }
 
+#checkout-button {
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+#checkout-button button {
+  margin-left: 0;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -338,6 +346,9 @@ button:hover {
     grid-row: 1/3;
     grid-column: 4;
     margin-bottom: 0;
+  }
+  #checkout-button button {
+    margin-left: 0.5rem;
   }
 }
 
@@ -390,3 +401,4 @@ footer {
   font-size: 20px;
   margin-top: 20px;
 }
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sleep Outside | Checkout</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/main.js" type="module"></script>
+    <script src="../js/checkoutProcess.js" type="module"></script>
+  </head>
+  <body>
+    <header class="divider" id="main-header"></header>
+    <main class="divider">
+      <section class="products">
+        <h2>Review & Place your Order</h2>
+      </section>
+      <section id="checkout-form">
+        <form action="">
+          <fieldset>
+            <legend>Shipping</legend>
+            <label for="first-name">First Name</label>
+            <input type="text" name="first-name" id="first-name" required>
+            <label for="last-name">Last Name</label>
+            <input type="text" name="last-name" id="last-name" required>
+            <label for="street">Street</label>
+            <input type="text" name="street" id="street" required>
+            <label for="city">City</label>
+            <input type="text" name="city" id="city" required>
+            <label for="state">State</label>
+            <input type="text" name="state" id="state" required>
+            <label for="zip">Zip</label>
+            <input type="text" name="zip" id="zip" required>
+          </fieldset>
+          <fieldset>
+            <legend>Payment</legend>
+            <label for="card-number">Card Number</label>
+            <input type="text" name="card-number" id="card-number" required>
+            <label for="expiration">Expiration</label>
+            <input type="text" name="expiration" id="expiration" required>
+            <label for="security-code">Security Code</label>
+            <input type="text" name="security-code" id="security-code" required>
+          </fieldset>
+          <fieldset>
+            <legend>Order Summary</legend>
+            <p>Item Subtotal(<span id="quantity"></span>)</p>
+            <p id="item-subtotal"></p>
+            <p>Shipping Estimate</p>
+            <p id="shipping-estimate"></p>
+            <p>Tax</p>
+            <p id="tax"></p>
+            <p>Order Total</p>
+            <p id="order-total"></p>
+          </fieldset>
+          <button>Checkout</button>
+        </form>
+      </section>
+    </main>
+    <footer id="main-footer"></footer>
+  </body>
+</html>
