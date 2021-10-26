@@ -220,7 +220,7 @@ button:hover {
   font-weight: bold;
 }
 
-.products h2 {
+.products h2, .breadcrumbs h3 {
   text-transform: capitalize;
 }
 
