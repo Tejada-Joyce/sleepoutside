@@ -220,7 +220,8 @@ button:hover {
   font-weight: bold;
 }
 
-.products h2, .breadcrumbs h3 {
+.products h2,
+.breadcrumbs h3 {
   text-transform: capitalize;
 }
 
@@ -330,32 +331,33 @@ button:hover {
 /* End Cart */
 
 /* Checkout */
-#checkout-form{
+#checkout-form {
   margin: 0.5rem;
 }
-#checkout-form legend{
+#checkout-form legend {
   font-weight: bolder;
   font-size: 1.25rem;
 }
-#shipping, #payment{
+#shipping,
+#payment {
   display: grid;
   padding: 0.5rem;
   margin-bottom: 1rem;
 }
-#summary{
+#summary {
   display: grid;
   grid-template-columns: auto auto;
   margin-bottom: 1rem;
 }
-#checkout-form input{
+#checkout-form input {
   margin-bottom: 1rem;
   margin-top: 0.25rem;
   padding: 0.25rem;
 }
-#order-total{
+#order-total {
   font-weight: bolder;
 }
-#checkout-form button{
+#checkout-form button {
   margin-bottom: 1rem;
 }
 /* End Checkout */
@@ -379,7 +381,7 @@ button:hover {
     margin-bottom: 0;
   }
   /* Checkout */
-  #checkout-form{
+  #checkout-form {
     max-width: 50%;
     margin: auto;
   }
@@ -437,4 +439,3 @@ footer {
   font-size: 20px;
   margin-top: 20px;
 }
-

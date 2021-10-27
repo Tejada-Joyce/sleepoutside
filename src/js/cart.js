@@ -27,7 +27,7 @@ function getCartContents() {
     qs(".product-list").innerHTML = htmlItems.join("");
     setClickforAll(".removeFromCart", removeFromCart);
     totalCost();
-    checkoutBtn.style.display = 'block';
+    checkoutBtn.style.display = "block";
   } else {
     const p = document.createElement("p");
     const ul = qs(".product-list");
@@ -35,7 +35,7 @@ function getCartContents() {
     p.innerHTML = "There is nothing in your cart yet.";
     ul.style.display = "none";
     section.appendChild(p);
-    checkoutBtn.style.display = 'none';
+    checkoutBtn.style.display = "none";
   }
 
   // document.querySelector(".product-list").innerHTML = renderCartItem(cartItems);
