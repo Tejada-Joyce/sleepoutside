@@ -24,12 +24,26 @@ function renderSubtotal() {
   }
   return sum.toFixed(2);
 }
+
 function formDataToJSON(formElement) {
   let formData = new FormData(formElement);
 
   const converted = Object.fromEntries(formData.entries());
 
   return converted;
+}
+
+function packageItems(items) {
+  const simplifiedItems = items.map((item) => {
+    const itemObject = {
+      id: item.Id,
+      price: item.FinalPrice,
+      name: item.Name,
+      quantity: 1,
+    };
+    return itemObject;
+  });
+  return simplifiedItems;
 }
 
 export default class CheckoutProcess {
@@ -83,6 +97,7 @@ export default class CheckoutProcess {
     order.orderTotal = this.totalAmount;
     order.tax = this.taxAmount;
     order.shipping = this.shippingAmount;
+    order.items = packageItems(cartItems);
 
     const externalServices = new ExternalServices();
     externalServices.checkout(order);
