@@ -264,6 +264,15 @@ button:hover {
 .card__name {
   font-size: 1em;
 }
+.product-card__price {
+  display: inline;
+}
+.original-price {
+  display: inline;
+}
+.discount {
+  color: red;
+}
 /* End product list card */
 
 .product-detail {
@@ -321,6 +330,7 @@ button:hover {
   margin-bottom: 20px;
 }
 
+/* Medium Width */
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
