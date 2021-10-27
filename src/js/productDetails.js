@@ -28,6 +28,9 @@ export default class ProductDetails {
   addToCart() {
     let currentCart = getLocalStorage("so-cart");
     currentCart.push(this.product);
+    currentCart.sort((a, b) =>
+      a.Name > b.Name ? 1 : b.Name > a.Name ? -1 : 0
+    );
     setLocalStorage("so-cart", currentCart);
     playAnimation();
     renderCartSuperscript();
