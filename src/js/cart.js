@@ -12,6 +12,7 @@ import { renderCartSuperscript } from "./cart-superscript.js";
 function getCartContents() {
   let markup = "";
   const cartItems = getLocalStorage("so-cart");
+  const checkoutBtn = qs("#checkout-button");
   if (cartItems.length !== 0) {
     // const newCartItems = [
     //   ...new Map(cartItems.map((item) => [item["Id"], item])).values(),
@@ -25,6 +26,8 @@ function getCartContents() {
     });
     qs(".product-list").innerHTML = htmlItems.join("");
     setClickforAll(".removeFromCart", removeFromCart);
+    totalCost();
+    checkoutBtn.style.display = "block";
   } else {
     const p = document.createElement("p");
     const ul = qs(".product-list");
@@ -32,6 +35,7 @@ function getCartContents() {
     p.innerHTML = "There is nothing in your cart yet.";
     ul.style.display = "none";
     section.appendChild(p);
+    checkoutBtn.style.display = "none";
   }
 
   // document.querySelector(".product-list").innerHTML = renderCartItem(cartItems);
@@ -109,4 +113,3 @@ function getItemQuantity(cart, mainArray) {
 
 loadHeaderFooter();
 getCartContents();
-totalCost();
