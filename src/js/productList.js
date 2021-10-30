@@ -42,12 +42,16 @@ export default class ProductList {
     const h3 = qs(".card__brand", clone);
     const h2 = qs(".card__name", clone);
     const p = qs(".product-card__price", clone);
+    const discount = qs(".discount", clone);
+    const originalPrice = qs(".original-price", clone);
 
     a.href += product.Id;
     img.setAttribute("src", product.Images.PrimaryMedium);
     h3.innerHTML = product.Brand.Name;
     h2.innerHTML = product.NameWithoutBrand;
     p.innerHTML += product.ListPrice;
+    originalPrice.innerHTML = `<strike>$${product.SuggestedRetailPrice}</strike>`;
+    discount.innerHTML = Math.round((100 * (product.SuggestedRetailPrice - product.ListPrice)) / product.SuggestedRetailPrice) + '% OFF';
   }
 
   editTitle() {

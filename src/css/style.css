@@ -265,6 +265,15 @@ button:hover {
 .card__name {
   font-size: 1em;
 }
+.product-card__price {
+  display: inline;
+}
+.original-price {
+  display: inline;
+}
+.discount {
+  color: red;
+}
 /* End product list card */
 
 .product-detail {
@@ -330,6 +339,21 @@ p#cartTotal {
   padding-left: 0.5em;
 }
 /* End Cart */
+
+/* Medium Width */
+@media screen and (min-width: 500px) {
+  body {
+    max-width: 1080px;
+    margin: auto;
+  }
+  .mission {
+    font-size: 1.2em;
+  }
+  .cart-card {
+    font-size: inherit;
+    grid-template-columns: 150px auto 15% auto;
+  }
+
 
 /* Checkout */
 #checkout-form {
