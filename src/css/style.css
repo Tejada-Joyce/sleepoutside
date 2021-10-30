@@ -221,7 +221,8 @@ button:hover {
 }
 
 .products h2,
-.breadcrumbs h3 {
+.breadcrumbs h3,
+.breadcrumbs {
   text-transform: capitalize;
 }
 

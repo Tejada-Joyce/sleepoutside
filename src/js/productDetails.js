@@ -37,8 +37,10 @@ export default class ProductDetails {
   }
 
   renderProductDetails() {
+    console.log(this.product);
     const productDetailsHtml = `
       <section class="product-detail">
+      <h3 class="breadcrumbs">${this.product.Category} -> ${this.product.NameWithoutBrand}</h3>
         <h3>${this.product.Brand.Name}</h3>
         <h2 class="divider">${this.product.NameWithoutBrand}</h2>
         <img
@@ -48,25 +50,26 @@ export default class ProductDetails {
         />
 
         <p class="discount"> ${Math.round(
-          (100 * (this.product.SuggestedRetailPrice - this.product.ListPrice)) /
-            this.product.SuggestedRetailPrice
-        )}% OFF</p>
+      (100 * (this.product.SuggestedRetailPrice - this.product.ListPrice)) /
+      this.product.SuggestedRetailPrice
+    )}% OFF</p>
         <p class="product-card__price">${this.product.ListPrice}  <strike>$${
       this.product.SuggestedRetailPrice
-    }</strike></p>
+      }</strike></p>
         <p class="product__color">${this.product.Colors[0].ColorName}</p>
         <p class="product__description">
         ${this.product.DescriptionHtmlSimple}
         </p>
         <div class="product-detail__add">
           <button id="addToCart" data-id="${
-            this.product.Id
-          }">Add to Cart</button>
+      this.product.Id
+      }">Add to Cart</button>
         </div>
       </section>
     `;
 
     const main = qs("#productDetails");
     main.innerHTML = productDetailsHtml;
+    this.editBreadCartDetails();
   }
 }
