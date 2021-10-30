@@ -51,7 +51,11 @@ export default class ProductList {
     h2.innerHTML = product.NameWithoutBrand;
     p.innerHTML += product.ListPrice;
     originalPrice.innerHTML = `<strike>$${product.SuggestedRetailPrice}</strike>`;
-    discount.innerHTML = Math.round((100 * (product.SuggestedRetailPrice - product.ListPrice)) / product.SuggestedRetailPrice) + '% OFF';
+    discount.innerHTML =
+      Math.round(
+        (100 * (product.SuggestedRetailPrice - product.ListPrice)) /
+          product.SuggestedRetailPrice
+      ) + "% OFF";
   }
 
   editTitle() {

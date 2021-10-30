@@ -354,21 +354,6 @@ p#cartTotal {
 }
 /* End Cart */
 
-/* Medium Width */
-@media screen and (min-width: 500px) {
-  body {
-    max-width: 1080px;
-    margin: auto;
-  }
-  .mission {
-    font-size: 1.2em;
-  }
-  .cart-card {
-    font-size: inherit;
-    grid-template-columns: 150px auto 15% auto;
-  }
-
-
 /* Checkout */
 #checkout-form {
   margin: 0.5rem;
