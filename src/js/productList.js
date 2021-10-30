@@ -15,13 +15,13 @@ export default class ProductList {
     this.productList = await this.datasource.getProductsData(this.category);
 
     this.element = qs(this.element);
-    // renderListWithTemplate(
-    //   this.template,
-    //   this.element,
-    //   this.productList,
-    //   this.prepareTemplate,
-    //   this.editBread
-    // );
+    renderListWithTemplate(
+      this.template,
+      this.element,
+      this.productList,
+      this.prepareTemplate,
+      this.editBread
+    );
     this.editTitle();
     this.editBread();
 
