@@ -1,19 +1,17 @@
-import { alertMessage } from "./utils.js"
+import { alertMessage, qs } from "./utils.js";
 
 const baseURL = "http://157.201.228.93:2992/";
 
 async function convertToJson(res) {
-
-
   if (res.ok) {
     return res.json();
   } else {
-    throw { name: 'servicesError', message: res.json() };
+    throw { name: "servicesError", message: res.json() };
   }
 }
 
 export default class ExternalServices {
-  constructor() { }
+  constructor() {}
 
   getProductsData(category) {
     return fetch(baseURL + `products/search/${category}`)
@@ -47,14 +45,11 @@ export default class ExternalServices {
       qs("#checkout-form form").reset();
       return results;
     } catch (err) {
-
       console.log(err);
       for (let message in err.message) {
         console.log("hi");
         alertMessage(err.message[message]);
       }
-
-
     }
   }
 }

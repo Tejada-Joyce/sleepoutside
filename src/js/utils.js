@@ -115,11 +115,11 @@ export function alertMessage(message, scroll = true) {
   // create element to hold our alert
   console.log(message);
   console.log("hey");
-  const alert = document.createElement('div');
+  const alert = document.createElement("div");
   // add a class to style the alert
-  alert.classList.add('alert');
+  alert.classList.add("alert");
   // set the contents. You should have a message and an X or something the user can click on to remove
-  let content = '';
+  let content = "";
   content += `<p> ${message} </p>`;
 
   alert.innerHTML = content;
@@ -131,12 +131,9 @@ export function alertMessage(message, scroll = true) {
   //   }
   // })
   // add the alert to the top of main
-  const main = document.querySelector('main');
+  const main = document.querySelector("main");
   main.prepend(alert);
   // make sure they see the alert by scrolling to the top of the window
   //we may not always want to do this...so default to scroll=true, but allow it to be passed in and overridden.
-  if (scroll)
-    window.scrollTo(0, 0);
-
+  if (scroll) window.scrollTo(0, 0);
 }
-

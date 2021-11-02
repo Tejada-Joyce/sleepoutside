@@ -71,7 +71,9 @@ export default class CheckoutProcess {
     //     if (chk_status)
     //       this.handleSubmit(e);
     //   });
-    qs("#checkout-form form").addEventListener("submit", (e) => { this.handleSubmit(e) });
+    qs("#checkout-form form").addEventListener("submit", (e) => {
+      this.handleSubmit(e);
+    });
   }
 
   renderTotalDetails() {
@@ -111,7 +113,6 @@ export default class CheckoutProcess {
 
       const externalServices = new ExternalServices();
       externalServices.checkout(order);
-
     } catch (err) {
       console.log(err);
     }
