@@ -62,7 +62,16 @@ export default class CheckoutProcess {
       }
     });
 
-    qs("#checkout-form form").addEventListener("submit", this.handleSubmit);
+    // qs("#checkout-form form")
+    //   .addEventListener('submit', (e) => {
+    //     e.preventDefault();
+    //     var myForm = document.forms[0];
+    //     var chk_status = myForm.checkValidity();
+    //     myForm.reportValidity();
+    //     if (chk_status)
+    //       this.handleSubmit(e);
+    //   });
+    qs("#checkout-form form").addEventListener("submit", (e) => { this.handleSubmit(e) });
   }
 
   renderTotalDetails() {
@@ -89,19 +98,23 @@ export default class CheckoutProcess {
   }
 
   async handleSubmit(e) {
-    e.preventDefault();
-    var checkoutForm = e.target;
+    try {
+      e.preventDefault();
+      var checkoutForm = e.target;
 
-    const order = formDataToJSON(checkoutForm);
-    order.orderDate = new Date();
-    order.orderTotal = this.totalAmount;
-    order.tax = this.taxAmount;
-    order.shipping = this.shippingAmount;
-    order.items = packageItems(cartItems);
+      const order = formDataToJSON(checkoutForm);
+      order.orderDate = new Date();
+      order.orderTotal = this.totalAmount;
+      order.tax = this.taxAmount;
+      order.shipping = this.shippingAmount;
+      order.items = packageItems(cartItems);
 
-    const externalServices = new ExternalServices();
-    externalServices.checkout(order);
-    checkoutForm.reset();
+      const externalServices = new ExternalServices();
+      externalServices.checkout(order);
+
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
 
