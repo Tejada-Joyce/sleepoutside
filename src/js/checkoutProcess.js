@@ -111,7 +111,6 @@ export default class CheckoutProcess {
 
       const externalServices = new ExternalServices();
       externalServices.checkout(order);
-      // checkoutForm.reset();
 
     } catch (err) {
       console.log(err);

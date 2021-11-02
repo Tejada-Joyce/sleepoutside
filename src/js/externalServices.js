@@ -1,3 +1,5 @@
+import { alertMessage } from "./utils.js"
+
 const baseURL = "http://157.201.228.93:2992/";
 
 async function convertToJson(res) {
@@ -45,7 +47,14 @@ export default class ExternalServices {
       qs("#checkout-form form").reset();
       return results;
     } catch (err) {
+
       console.log(err);
+      for (let message in err.message) {
+        console.log("hi");
+        alertMessage(err.message[message]);
+      }
+
+
     }
   }
 }
