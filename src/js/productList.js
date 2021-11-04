@@ -72,7 +72,7 @@ export default class ProductList {
           : 0
       );
       console.log(this.productList);
-    } else {
+    } else if (type === "price") {
       this.productList.sort((a, b) =>
         a.ListPrice > b.ListPrice ? 1 : b.ListPrice > a.ListPrice ? -1 : 0
       );
