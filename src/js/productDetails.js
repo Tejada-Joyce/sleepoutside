@@ -12,9 +12,9 @@ export default class ProductDetails {
     this.productId = productId;
     this.product = {};
     this.dataSource = dataSource;
-    this.carousel = '';
-    this.carouselLinks = '';
-    this.carouselItem = '';
+    this.carousel = "";
+    this.carouselLinks = "";
+    this.carouselItem = "";
   }
   async init() {
     // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
@@ -28,8 +28,6 @@ export default class ProductDetails {
 
     this.renderProductDetails();
     console.log(this.carousel[1]);
-
-
 
     // once the html is rendered we can add a listener to Add to Cart button
     // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
@@ -50,16 +48,19 @@ export default class ProductDetails {
   }
 
   renderProductDetails() {
-
     const productDetailsHtml = `
       <section class="product-detail">
-      <h3 class="breadcrumbs">${this.product.Category} -> ${this.product.NameWithoutBrand}</h3>
+      <h3 class="breadcrumbs">${this.product.Category} -> ${
+      this.product.NameWithoutBrand
+    }</h3>
         <h3>${this.product.Brand.Name}</h3>
         <h2 class="divider">${this.product.NameWithoutBrand}</h2>
 
         <div class="slider">
           <div class="slides">
-          <img class="carousel-image" id="slide-1" src="${this.product.Images.PrimaryLarge}" alt="${this.product.NameWithoutBrand}"/>
+          <img class="carousel-image" id="slide-1" src="${
+            this.product.Images.PrimaryLarge
+          }" alt="${this.product.NameWithoutBrand}"/>
             ${this.carouselLinks} 
           </div>
           <div class="carousel-icons">
@@ -69,20 +70,20 @@ export default class ProductDetails {
         </div>
 
         <p class="discount"> ${Math.round(
-      (100 * (this.product.SuggestedRetailPrice - this.product.ListPrice)) /
-      this.product.SuggestedRetailPrice
-    )}% OFF</p>
+          (100 * (this.product.SuggestedRetailPrice - this.product.ListPrice)) /
+            this.product.SuggestedRetailPrice
+        )}% OFF</p>
         <p class="product-card__price">${this.product.ListPrice}  <strike>$${
       this.product.SuggestedRetailPrice
-      }</strike></p>
+    }</strike></p>
         <p class="product__color">${this.product.Colors[0].ColorName}</p>
         <p class="product__description">
         ${this.product.DescriptionHtmlSimple}
         </p>
         <div class="product-detail__add">
           <button id="addToCart" data-id="${
-      this.product.Id
-      }">Add to Cart</button>
+            this.product.Id
+          }">Add to Cart</button>
         </div>
       </section>
     `;
@@ -97,20 +98,19 @@ export default class ProductDetails {
     var boxItems = "";
     var number = 1;
     if (this.product.Images.ExtraImages !== null) {
-      this.product.Images.ExtraImages.forEach(item => {
+      this.product.Images.ExtraImages.forEach((item) => {
         number += 1;
         console.log(item);
-        carouselItem += `<a href="#slide-${number}"> `;
+        carouselItem += "<a href='#slide-${number}'> ";
         carouselItem += number;
-        carouselItem += ` </a>`;
+        carouselItem += " </a>";
 
-        boxItems += `<img class="carousel-image" id="slide-${number}" src="`;
+        boxItems += "<img class='carousel-image' id='slide-${number}' src='";
         boxItems += item.Src;
-        boxItems += `"/>`;
+        boxItems += "'/>";
 
         // boxItems += number;
         // boxItems += `</img>`;
-
       });
 
       // <img
@@ -119,9 +119,7 @@ export default class ProductDetails {
       console.log(carouselItem);
       console.log(boxItems);
 
-
       return [carouselItem, boxItems];
     }
-
   }
 }
