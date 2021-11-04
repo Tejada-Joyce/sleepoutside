@@ -6,7 +6,7 @@ function convertToJson(t) {
 }
 
 export default class ExternalServices {
-  constructor() { }
+  constructor() {}
 
   getProductsData(category) {
     return fetch(baseURL + `products/search/${category}`)

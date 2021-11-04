@@ -437,7 +437,6 @@ footer {
   margin-top: 20px;
 }
 
-
 /* Details slides */
 
 .slider {
@@ -451,11 +450,9 @@ footer {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; 
+  -webkit-overflow-scrolling: touch;
   overflow: hidden;
 }
-
-
 
 .slides img {
   scroll-snap-align: start;
@@ -475,7 +472,7 @@ footer {
   font-size: 100px;
 }
 
-.slider  a {
+.slider a {
   width: 1.5rem;
   height: 1.5rem;
   background: var(--secondary-color);
@@ -489,7 +486,7 @@ footer {
   margin: 5px;
   padding: 3px;
 }
-.slider  a:active {
+.slider a:active {
   background-color: lightgrey;
   color: black;
 }
@@ -497,7 +494,6 @@ footer {
 .carousel-icons {
   display: flex;
 }
-
 
 @media screen and (min-width: 500px) {
   body {
