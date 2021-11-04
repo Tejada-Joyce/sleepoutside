@@ -8,11 +8,13 @@
     <script src="../js/main.js" type="module"></script>
     <script src="../js/checkoutProcess.js" type="module"></script>
   </head>
+
   <body>
     <header class="divider" id="main-header"></header>
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
+        <p id="message"></p>
       </section>
       <section id="checkout-form">
         <form>
@@ -51,7 +53,7 @@
             <p>Order Total</p>
             <p id="order-total"></p>
           </fieldset>
-          <button>Checkout</button>
+          <button id="checkoutSubmit">Checkout</button>
         </form>
       </section>
     </main>
