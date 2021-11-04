@@ -101,13 +101,13 @@ export default class ProductDetails {
       this.product.Images.ExtraImages.forEach((item) => {
         number += 1;
         console.log(item);
-        carouselItem += `<a href="#slide-${number}"> `;
+        carouselItem += "<a href='#slide-${number}'> ";
         carouselItem += number;
         carouselItem += " </a>";
 
-        boxItems += `<img class="carousel-image" id="slide-${number}" src="`;
+        boxItems += "<img class='carousel-image' id='slide-${number}' src='";
         boxItems += item.Src;
-        boxItems += "/>";
+        boxItems += "'/>";
 
         // boxItems += number;
         // boxItems += `</img>`;
