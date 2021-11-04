@@ -48,6 +48,7 @@ export default class ProductDetails {
   }
 
   renderProductDetails() {
+    const colorsHtml = this.renderColors(this.product.Colors);
     const productDetailsHtml = `
       <section class="product-detail">
       <h3 class="breadcrumbs">${this.product.Category} -> ${
@@ -76,7 +77,7 @@ export default class ProductDetails {
         <p class="product-card__price">${this.product.ListPrice}  <strike>$${
       this.product.SuggestedRetailPrice
     }</strike></p>
-        <p class="product__color">${this.product.Colors[0].ColorName}</p>
+        <section class="product__color">${colorsHtml}</section>
         <p class="product__description">
         ${this.product.DescriptionHtmlSimple}
         </p>
@@ -91,6 +92,20 @@ export default class ProductDetails {
     const main = qs("#productDetails");
     main.innerHTML = productDetailsHtml;
     this.editBreadCartDetails;
+  }
+
+  renderColors(colors) {
+    return colors
+      .map(
+        (color) => `
+    <div class="color-radio">
+      <img src="${color.ColorChipImageSrc}" alt="${color.ColorName}">
+      <label for="color">${color.ColorName}"</label>
+      <input name="color" type="radio" value="${color.ColorCode}">
+    </div>
+      `
+      )
+      .join("");
   }
 
   renderCarousel() {

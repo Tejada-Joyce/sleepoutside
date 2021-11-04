@@ -295,6 +295,10 @@ button:hover {
   color: red;
 }
 
+.product__color {
+  display: flex;
+}
+
 /* Start cart list card styles */
 .cart-card {
   display: grid;
