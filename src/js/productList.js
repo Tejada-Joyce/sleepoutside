@@ -14,16 +14,6 @@ export default class ProductList {
     // console.log(this.datasource);
     this.productList = await this.datasource.getProductsData(this.category);
 
-    // if (this.category === "tents") {
-    //   this.productList = await this.productList.filter(
-    //     (product) =>
-    //       product.Id == "880RR" ||
-    //       product.Id == "985RF" ||
-    //       product.Id == "985PR" ||
-    //       product.Id == "344YJ"
-    //   );
-    // }
-
     this.element = qs(this.element);
     renderListWithTemplate(
       this.template,
@@ -34,6 +24,17 @@ export default class ProductList {
     );
     this.editTitle();
     this.editBread();
+
+    qs("#sortTypes").addEventListener("change", (e) => {
+      this.sortListBy(e.target.value);
+      renderListWithTemplate(
+        this.template,
+        this.element,
+        this.productList,
+        this.prepareTemplate,
+        this.editBread
+      );
+    });
   }
 
   prepareTemplate(clone, product) {
@@ -66,5 +67,21 @@ export default class ProductList {
   editBread() {
     const bread = qs("section.breadcrumbs h3");
     bread.innerHTML += `${this.category} -> (${this.productList.length} Items)`;
+  }
+
+  sortListBy(type) {
+    if (type === "name") {
+      this.productList.sort((a, b) =>
+        a.NameWithoutBrand > b.NameWithoutBrand
+          ? 1
+          : b.NameWithoutBrand > a.NameWithoutBrand
+          ? -1
+          : 0
+      );
+    } else if (type === "price") {
+      this.productList.sort((a, b) =>
+        a.ListPrice > b.ListPrice ? 1 : b.ListPrice > a.ListPrice ? -1 : 0
+      );
+    }
   }
 }

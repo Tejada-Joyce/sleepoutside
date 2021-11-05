@@ -28,7 +28,17 @@
         <h3></h3>
       </section>
       <section class="products">
-        <h2>Top Products:</h2>
+        <div class="heading">
+          <h2>Top Products:</h2>
+          <div>
+            <label for="sortTypes">Sort By:</label>
+            <select name="sortTypes" id="sortTypes">
+              <option value="">Select</option>
+              <option value="name">Name</option>
+              <option value="price">Price</option>
+            </select>
+          </div>
+        </div>
         <ul class="product-list"></ul>
       </section>
     </main>
