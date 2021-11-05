@@ -152,11 +152,5 @@ function getItemQuantity(cart, mainArray) {
   return count;
 }
 
-// function quantityBtnAction(action){
-//   if(action === "remove"){
-//     setClickforAll()
-//   }
-// }
-
 loadHeaderFooter();
 getCartContents();

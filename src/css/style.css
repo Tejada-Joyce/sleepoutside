@@ -228,6 +228,7 @@ button:hover {
 
 .products h2 {
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 .products-list a {
@@ -235,6 +236,12 @@ button:hover {
   text-decoration: none;
 }
 
+#sortTypes {
+  font-size: 1rem;
+  width: 100px;
+  border: 1px solid var(--light-grey);
+  padding: 8px;
+}
 .products {
   padding: 0.5em;
 }
@@ -521,5 +528,11 @@ footer {
   }
   #checkout-button button {
     margin-left: 0.5rem;
+  }
+
+  .products .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
