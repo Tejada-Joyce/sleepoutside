@@ -6,12 +6,12 @@ async function convertToJson(res) {
   if (res.ok) {
     return res.json();
   } else {
-    throw { name: "servicesError", message: res.json() };
+    throw { name: "servicesError", message: await res.json() };
   }
 }
 
 export default class ExternalServices {
-  constructor() { }
+  constructor() {}
 
   getProductsData(category) {
     return fetch(baseURL + `products/search/${category}`)
@@ -45,10 +45,9 @@ export default class ExternalServices {
       qs("#checkout-form form").reset();
       return results;
     } catch (err) {
-      console.log(err);
-      for (let message in err.message) {
-        console.log("hi");
-        alertMessage(err.message[message]);
+      const errorMessages = err.message;
+      for (let message in errorMessages) {
+        alertMessage(errorMessages[message]);
       }
     }
   }
