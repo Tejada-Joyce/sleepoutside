@@ -27,6 +27,13 @@ export default class ProductList {
 
     qs("#sortTypes").addEventListener("change", (e) => {
       this.sortListBy(e.target.value);
+      renderListWithTemplate(
+        this.template,
+        this.element,
+        this.productList,
+        this.prepareTemplate,
+        this.editBread
+      );
     });
   }
 
@@ -71,19 +78,10 @@ export default class ProductList {
           ? -1
           : 0
       );
-      console.log(this.productList);
     } else if (type === "price") {
       this.productList.sort((a, b) =>
         a.ListPrice > b.ListPrice ? 1 : b.ListPrice > a.ListPrice ? -1 : 0
       );
-      console.log(this.productList);
     }
-    renderListWithTemplate(
-      this.template,
-      this.element,
-      this.productList,
-      this.prepareTemplate,
-      this.editBread
-    );
   }
 }
