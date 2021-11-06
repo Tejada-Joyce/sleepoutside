@@ -3,6 +3,7 @@ import {
   getLocalStorage,
   setLocalStorage,
   playAnimation,
+  alertMessage,
 } from "../js/utils.js";
 
 import { renderCartSuperscript } from "./cart-superscript.js";
@@ -27,7 +28,7 @@ export default class ProductDetails {
     this.carouselItem = this.carousel[0];
 
     this.renderProductDetails();
-    console.log(this.carousel[1]);
+    // console.log(this.carousel[1]);
 
     // once the html is rendered we can add a listener to Add to Cart button
     // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
@@ -45,6 +46,8 @@ export default class ProductDetails {
     setLocalStorage("so-cart", currentCart);
     playAnimation();
     renderCartSuperscript();
+    const message = "Your item has been added. Keep shopping!";
+    alertMessage(message, false);
   }
 
   renderProductDetails() {
@@ -100,12 +103,12 @@ export default class ProductDetails {
     if (this.product.Images.ExtraImages !== null) {
       this.product.Images.ExtraImages.forEach((item) => {
         number += 1;
-        console.log(item);
-        carouselItem += "<a href='#slide-${number}'> ";
+        // console.log(item);
+        carouselItem += `<a href='#slide-${number}'> `;
         carouselItem += number;
         carouselItem += " </a>";
 
-        boxItems += "<img class='carousel-image' id='slide-${number}' src='";
+        boxItems += `<img class='carousel-image' id='slide-${number}' src='`;
         boxItems += item.Src;
         boxItems += "'/>";
 
@@ -116,8 +119,8 @@ export default class ProductDetails {
       // <img
       // class="divider"
       // src="${this.product.Images.PrimaryLarge}"
-      console.log(carouselItem);
-      console.log(boxItems);
+      // console.log(carouselItem);
+      // console.log(boxItems);
 
       return [carouselItem, boxItems];
     }
