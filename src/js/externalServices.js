@@ -35,20 +35,51 @@ export default class ExternalServices {
         },
         body: JSON.stringify(order),
       };
-      console.log(order);
       const results = await fetch(baseURL + "checkout/", options).then(
         convertToJson
       );
-      console.log(results);
       location.href = "../checkout/checkedout.html";
       localStorage.clear();
       qs("#checkout-form form").reset();
       return results;
     } catch (err) {
-      const errorMessages = err.message;
-      for (let message in errorMessages) {
-        alertMessage(errorMessages[message]);
-      }
+      // remember this from before?
+      alertMessage(err.message.message);
+    }
+  }
+
+  async loginRequest(creds) {
+    try {
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(creds),
+      };
+      const token = await fetch(baseURL + "login", options).then(convertToJson);
+      console.log(token);
+      return token;
+    } catch (err) {
+      // remember this from before?
+      alertMessage(err.message.message);
+    }
+  }
+
+  async getOrders(token) {
+    try {
+      const options = {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token.accessToken}`,
+        },
+      };
+      const orders = await fetch(baseURL + "orders/", options).then(
+        convertToJson
+      );
+      return orders;
+    } catch (err) {
+      alertMessage(err.message.message);
     }
   }
 }
