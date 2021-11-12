@@ -54,23 +54,35 @@ export default class Admin {
     try {
       this.orders = await this.services.getOrders(this.token);
       console.log(this.orders);
+      let list = "";
       const newOrders = this.orders
-        .map(
-          (order) =>
-            `
-            <ul>
-                <li>${order.fname}</li>
-                <li>${order.street}, ${order.city}, ${order.state} ${order.zip}</li>
-               
-            </ul>
-     
-        `
-        )
+        .map((order) => {
+          if ("items" in order) {
+            const items = order.items
+              .map((item) => `<li>${item.name}</li>`)
+              .join("");
+            list = `
+              <ul>
+                  <li>${order.fname}</li>
+                  <li>${order.street}, ${order.city}, ${order.state} ${order.zip}</li>
+                  <li>
+                    <ul>
+                      ${items}
+                    </ul>
+                  </li>
+              </ul>
+            `;
+          } else {
+            list = `
+          <ul>
+              <li>${order.fname}</li>
+              <li>${order.street}, ${order.city}, ${order.state} ${order.zip}</li>
+          </ul>
+          `;
+          }
+          return list;
+        })
         .join("");
-      /*
-        <li>
-               ${console.log(order.items.map((item) => item.name).join(""))}
-                </li>*/
       this.mainElement.innerHTML = newOrders;
     } catch (err) {
       // remember this from before?
